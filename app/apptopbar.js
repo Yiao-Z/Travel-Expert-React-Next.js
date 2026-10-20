@@ -53,12 +53,12 @@ export default function SiteHeader() {
       </div>
 
       <div className="main-nav">
-        <Link className="brand" href="/" aria-label="Discover China home">
+        <Link className="brand" href="/" aria-label="Travel China home">
           <span className="brand-mark" aria-hidden="true">
             中
           </span>
           <span>
-            <strong>DISCOVER</strong>
+            <strong>TRAVEL</strong>
             <small>CHINA</small>
           </span>
         </Link>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import SiteHeader from "../../apptopbar";
 
 export const metadata = {
-  title: "Nature & Landscapes | Discover China",
+  title: "Nature & Landscapes | Travel China",
   description:
     "Discover China's river valleys, mountain landscapes, and atmospheric cities.",
 };

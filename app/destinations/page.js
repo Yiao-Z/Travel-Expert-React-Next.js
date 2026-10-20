@@ -2,7 +2,7 @@ import ChinaMap from "../ChinaMap";
 import SiteHeader from "../apptopbar";
 
 export const metadata = {
-  title: "Cities & Regions | Discover China",
+  title: "Cities & Regions | Travel China",
   description: "Explore China's provinces and regions with our interactive map.",
 };
 

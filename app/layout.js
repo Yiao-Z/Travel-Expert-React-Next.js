@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Discover China | Travel Guide",
+  title: "Travel China | Travel Guide",
   description: "Find inspiration and plan your journey through China.",
 };
 

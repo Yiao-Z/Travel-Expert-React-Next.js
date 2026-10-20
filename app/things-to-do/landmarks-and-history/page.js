@@ -3,7 +3,7 @@ import Link from "next/link";
 import SiteHeader from "../../apptopbar";
 
 export const metadata = {
-  title: "Landmarks & History | Discover China",
+  title: "Landmarks & History | Travel China",
   description:
     "Explore the Great Wall, the Terracotta Army, and the stories behind China's historic landmarks.",
 };
