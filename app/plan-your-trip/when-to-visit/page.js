@@ -16,21 +16,21 @@ const seasons = [
     description:
       "Mild weather and fresh blooms make spring a lovely time to explore cities and countryside. Conditions vary between northern and southern China.",
   },
-  
+
   {
     number: "03 / JUNE–AUGUST",
     title: "Summer",
     description:
       "Long days suit mountain and northern-region trips, though many places are hot, humid, or rainy. Expect busy domestic travel during school holidays.",
   },
-  
+
   {
     number: "02 / SEPTEMBER–NOVEMBER",
     title: "Autumn",
     description:
       "Comfortable temperatures and clear days make autumn a popular choice. Plan around the early-October National Day holiday if you prefer quieter travel.",
   },
-  
+
   {
     number: "04 / DECEMBER–FEBRUARY",
     title: "Winter",

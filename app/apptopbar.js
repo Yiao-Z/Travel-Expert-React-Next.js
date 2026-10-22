@@ -26,16 +26,16 @@ const navigationMenus = [
   {
     title: "Plan your trip",
     links: [
-    
       { label: "Travel tips", href: "/plan-your-trip/travel-tips" },
       { label: "When to visit", href: "/plan-your-trip/when-to-visit" },
+      { label: "Getting around", href: "/plan-your-trip/getting-around" },
       { label: "Register now", href: "/plan-your-trip/register-now" },
     ],
   },
   {
     title: "About us",
     links: [
-      { label: "Our story", href: "/#about" },
+      { label: "Our team", href: "/#about" },
       { label: "Our mission", href: "/#about" },
       { label: "Get in touch", href: "/#about" },
     ],
