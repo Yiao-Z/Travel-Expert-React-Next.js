@@ -153,10 +153,31 @@
   margin-top: 24px;
 }
 
+.formSection {
+  display: grid;
+  min-width: 0;
+  gap: 18px;
+  margin: 0;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid #e9e5dd;
+}
+
+.formSectionTitle {
+  padding: 0;
+  color: #34453a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
 .fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px 16px;
+}
+
+.field--full {
+  grid-column: 1 / -1;
 }
 
 .field {
@@ -169,6 +190,20 @@
   color: #34453a;
   font-size: 11px;
   font-weight: 700;
+}
+
+.passwordMatch {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.passwordMatch--error {
+  color: #a2442d;
+}
+
+.passwordMatch--success {
+  color: #3c6b4b;
 }
 
 .field input,
@@ -265,10 +300,79 @@
 }
 
 .privacy {
-  margin: -10px 0 0;
+  margin: 0;
   color: #78847a;
   font-size: 10px;
   line-height: 1.5;
+}
+
+.review {
+  display: grid;
+  gap: 18px;
+}
+
+.review h3 {
+  margin: 0;
+  color: #34453a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.reviewList {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid #e9e5dd;
+}
+
+.reviewItem {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9e5dd;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.reviewItem dt {
+  color: #657067;
+  font-weight: 700;
+}
+
+.reviewItem dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: #182720;
+}
+
+.reviewActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.reviewBack {
+  min-height: 52px;
+  border: 1px solid #deded6;
+  background: transparent;
+  color: #34453a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.reviewBack:hover,
+.reviewBack:focus-visible {
+  border-color: #a2442d;
+  color: #873722;
+}
+
+.reviewBack:focus-visible {
+  outline: 2px solid #873722;
+  outline-offset: 3px;
 }
 
 .back {
@@ -335,6 +439,15 @@
 
 @media (max-width: 400px) {
   .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewItem {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .reviewActions {
     grid-template-columns: 1fr;
   }
 }

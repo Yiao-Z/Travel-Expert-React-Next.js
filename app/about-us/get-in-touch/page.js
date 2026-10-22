@@ -10,7 +10,7 @@ export const metadata = {
 const teamMembers = [
     {
         name: "Alvin Zhao",
-        alias: "Alvin",
+        alias: "赵一帆 / Alvin",
         phone: "1-123-555-0100",
         email: "alvin@example.com",
     },
