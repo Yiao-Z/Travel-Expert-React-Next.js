@@ -36,16 +36,40 @@ export default function Home() {
               <span>01 / PLACES</span>
               <h3>Ancient wonders</h3>
               <p>Trace centuries of history through remarkable landmarks.</p>
+              <Link
+                className="feature-card__link"
+                href="/destinations/great-wall"
+              >
+                Visit the Great Wall <span aria-hidden="true">→</span>
+              </Link>
             </article>
             <article className="feature-card">
               <span>02 / CULTURE</span>
               <h3>Everyday discoveries</h3>
               <p>Meet local traditions, flavors, and ways of life.</p>
+              <Link
+                className="feature-card__link"
+                href="/things-to-do/food-and-cuisine"
+              >
+                Discover food &amp; cuisine <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                className="feature-card__link"
+                href="/things-to-do/culture"
+              >
+                Explore culture <span aria-hidden="true">→</span>
+              </Link>
             </article>
             <article className="feature-card" id="plan">
               <span>03 / YOUR JOURNEY</span>
               <h3>Make it your own</h3>
               <p>Find inspiration and start planning your trip to China.</p>
+              <Link
+                className="feature-card__link"
+                href="/destinations/travel-essentials"
+              >
+                Travel essentials <span aria-hidden="true">→</span>
+              </Link>
             </article>
           </div>
         </section>
@@ -57,6 +81,10 @@ export default function Home() {
             We share inspiration and practical guidance to help make every
             journey through China memorable.
           </p>
+          <div className="about-section__links">
+            <Link href="/about-us/our-story">Our story</Link>
+            <Link href="/about-us/get-in-touch">Get in touch</Link>
+          </div>
         </section>
       </main>
     </>

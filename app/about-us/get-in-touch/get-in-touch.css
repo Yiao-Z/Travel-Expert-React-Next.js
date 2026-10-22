@@ -1,0 +1,189 @@
+.get-in-touch {
+    --contact-green: #243d30;
+    --contact-red: #a2442d;
+    --contact-paper: #f7f5f0;
+    --contact-card: #fffefa;
+    --contact-muted: #5f6a62;
+
+    color: #292820;
+    background: var(--contact-paper);
+}
+
+.get-in-touch .contact-hero {
+    padding: 100px 24px;
+    background: var(--contact-green);
+    color: white;
+    text-align: center;
+}
+
+.get-in-touch .contact-eyebrow {
+    margin: 0;
+    color: var(--contact-red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.get-in-touch .contact-hero .contact-eyebrow,
+.get-in-touch .contact-ending .contact-eyebrow {
+    color: #e6b59e;
+}
+
+.get-in-touch .contact-hero h1 {
+    max-width: 850px;
+    margin: 20px auto;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(46px, 7vw, 78px);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    line-height: 1.08;
+}
+
+.get-in-touch .contact-hero>p:last-child {
+    max-width: 620px;
+    margin: 0 auto;
+    color: rgb(255 255 255 / 85%);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.get-in-touch .contact-intro {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 24px 48px;
+    text-align: center;
+}
+
+.get-in-touch .contact-intro h2,
+.get-in-touch .contact-ending h2 {
+    margin: 14px 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 5vw, 40px);
+    font-weight: 50;
+    letter-spacing: -0.045em;
+    line-height: 1.15;
+}
+
+.get-in-touch .contact-intro>p:last-child {
+    color: var(--contact-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.get-in-touch .contact-team {
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 0 auto;
+    padding: 16px 28px 100px;
+}
+
+.get-in-touch .contact-card {
+    min-width: 0;
+    padding: 30px 25px;
+    border: 1px solid #e6e2d9;
+    background: var(--contact-card);
+    box-shadow: 0 16px 40px rgb(24 39 32 / 5%);
+}
+
+.get-in-touch .contact-card__label {
+    color: var(--contact-red);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.get-in-touch .contact-card h3 {
+    margin: 18px 0 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.get-in-touch .contact-card__alias {
+    margin: 0 0 28px;
+    color: var(--contact-muted);
+    font-size: 13px;
+}
+
+.get-in-touch .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 20px;
+}
+
+.get-in-touch .contact-detail span {
+    color: var(--contact-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.get-in-touch .contact-detail a {
+    color: var(--contact-green);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.get-in-touch .contact-detail a:hover {
+    color: var(--contact-red);
+    text-decoration: underline;
+}
+
+.get-in-touch .contact-timezone {
+    margin: 26px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid #e6e2d9;
+    color: var(--contact-muted);
+    font-size: 12px;
+}
+
+.get-in-touch .contact-ending {
+    padding: 20px 24px 20px;
+    background: var(--contact-green);
+    color: white;
+    text-align: center;
+}
+
+.get-in-touch .contact-ending h2 {
+    margin-top: 16px;
+}
+
+.get-in-touch .contact-ending>p:last-child {
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgb(255 255 255 / 84%);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media (max-width: 850px) {
+    .get-in-touch .contact-team {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .get-in-touch .contact-hero {
+        padding: 76px 24px;
+    }
+
+    .get-in-touch .contact-intro {
+        padding-top: 60px;
+    }
+
+    .get-in-touch .contact-team {
+        grid-template-columns: 1fr;
+        padding-right: 20px;
+        padding-bottom: 72px;
+        padding-left: 20px;
+    }
+
+    .get-in-touch .contact-ending {
+        padding: 10px 15px 28px;
+    }
+}

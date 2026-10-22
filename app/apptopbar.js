@@ -5,8 +5,11 @@ const navigationMenus = [
     title: "Destinations",
     links: [
       { label: "Cities & regions", href: "/destinations" },
-      { label: "The Great Wall", href: "/#experiences" },
-      { label: "Travel essentials", href: "/#plan" },
+      { label: "The Great Wall", href: "/destinations/great-wall" },
+      {
+        label: "Travel essentials",
+        href: "/destinations/travel-essentials",
+      },
     ],
   },
   {
@@ -16,7 +19,11 @@ const navigationMenus = [
         label: "Landmarks & history",
         href: "/things-to-do/landmarks-and-history",
       },
-      { label: "Food & culture", href: "/#experiences" },
+      {
+        label: "Food & cuisine",
+        href: "/things-to-do/food-and-cuisine",
+      },
+      { label: "Culture", href: "/things-to-do/culture" },
       {
         label: "Nature & landscapes",
         href: "/things-to-do/nature-and-landscapes",
@@ -35,9 +42,8 @@ const navigationMenus = [
   {
     title: "About us",
     links: [
-      { label: "Our team", href: "/#about" },
-      { label: "Our mission", href: "/#about" },
-      { label: "Get in touch", href: "/#about" },
+      { label: "Our story", href: "/about-us/our-story" },
+      { label: "Get in touch", href: "/about-us/get-in-touch" },
     ],
   },
 ];

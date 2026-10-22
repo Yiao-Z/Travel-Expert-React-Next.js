@@ -1,18 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import SiteHeader from "../../apptopbar";
 import "./register-now.css";
 
 export default function RegisterPage() {
-  const [previewMessage, setPreviewMessage] = useState("");
+  const router = useRouter();
 
   function handleSubmit(event) {
     event.preventDefault();
-    setPreviewMessage(
-      "This page is a preview, so your details have not been sent or saved.",
-    );
+    router.push("/plan-your-trip/register-now/confirmation");
   }
 
   return (
@@ -164,9 +162,6 @@ export default function RegisterPage() {
               Register your interest <span aria-hidden="true">→</span>
             </button>
 
-            <p aria-live="polite" className="message" role="status">
-              {previewMessage}
-            </p>
             <p className="privacy">
               Your details stay in this preview and are not sent anywhere.
             </p>

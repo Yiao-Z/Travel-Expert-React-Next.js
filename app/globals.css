@@ -388,6 +388,39 @@ a {
   line-height: 1.7;
 }
 
+.destination-page__next {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 40px auto 0;
+}
+
+.destination-page__next a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 18px;
+  background: #a2442d;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.destination-page__next a:hover,
+.destination-page__next a:focus-visible {
+  background: #873722;
+}
+
+.destination-page__next a:focus-visible {
+  outline: 2px solid #873722;
+  outline-offset: 3px;
+}
+
 .nature-page .nature-card-list {
   grid-template-columns: 1fr;
   gap: 28px;
@@ -712,6 +745,23 @@ a {
   line-height: 1.6;
 }
 
+.feature-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 14px 0 0;
+  color: #873722;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.feature-card__link:hover,
+.feature-card__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .about-section {
   padding: 72px 24px 80px;
   background: #243d30;
@@ -737,6 +787,30 @@ a {
   color: rgb(255 255 255 / 80%);
   font-size: 15px;
   line-height: 1.7;
+}
+
+.about-section__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.about-section__links a {
+  padding: 11px 16px;
+  border: 1px solid rgb(255 255 255 / 42%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.about-section__links a:hover,
+.about-section__links a:focus-visible {
+  background: #fff;
+  color: #243d30;
 }
 
 @media (max-width: 850px) {
