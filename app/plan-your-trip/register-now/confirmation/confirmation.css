@@ -1,0 +1,111 @@
+.confirmation-page {
+  display: grid;
+  min-height: calc(100svh - 112px);
+  place-items: center;
+  padding: 64px 24px;
+  background:
+    linear-gradient(135deg, rgb(17 35 27 / 78%), rgb(17 35 27 / 42%)),
+    url("/background-china.jpg") center / cover;
+}
+
+.confirmation-card {
+  width: min(100%, 620px);
+  padding: clamp(36px, 7vw, 72px);
+  background: #fffefa;
+  box-shadow: 0 24px 70px rgb(10 22 16 / 24%);
+  text-align: center;
+}
+
+.confirmation-card__check {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  margin: 0 auto 24px;
+  border: 1px solid #d8e0d6;
+  border-radius: 50%;
+  background: #edf2eb;
+  color: #34583f;
+  font-size: 23px;
+}
+
+.confirmation-card__eyebrow {
+  margin: 0;
+  color: #a2442d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.confirmation-card h1 {
+  margin: 16px 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+}
+
+.confirmation-card__description {
+  max-width: 430px;
+  margin: 0 auto;
+  color: #5f6a62;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.confirmation-card__notice {
+  max-width: 430px;
+  margin: 24px auto 0;
+  padding: 13px 16px;
+  background: #f5eee7;
+  color: #59645b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.confirmation-card__actions {
+  display: grid;
+  gap: 13px;
+  margin-top: 28px;
+}
+
+.confirmation-card__primary {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: #a2442d;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  transition: background-color 160ms ease;
+}
+
+.confirmation-card__primary:hover,
+.confirmation-card__primary:focus-visible {
+  background: #873722;
+}
+
+.confirmation-card__primary:focus-visible,
+.confirmation-card__secondary:focus-visible {
+  outline: 2px solid #873722;
+  outline-offset: 3px;
+}
+
+.confirmation-card__primary span {
+  font-size: 17px;
+}
+
+.confirmation-card__secondary {
+  justify-self: center;
+  padding: 5px;
+  color: #873722;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
