@@ -23,8 +23,7 @@ export default function Home() {
               </Link>
               <Link
                 className="hero-cta hero-cta--secondary"
-                href="/plan-your-trip"
-                href="/register-now"
+                href="/plan-your-trip/register-now"
               >
                 Register for a trip <span aria-hidden="true">→</span>
               </Link>
