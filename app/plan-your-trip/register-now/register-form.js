@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import SiteHeader from "../../apptopbar";
+import { createTravelRegistrationAction } from "../../../lib/actions";
 import { travelPackages } from "../packages/packages";
 import "./register-now.css";
 
@@ -45,7 +45,10 @@ function calculateReturnDate(startDate, durationDays) {
 }
 
 export default function RegisterForm({ initialPackage }) {
-  const router = useRouter();
+  const [state, formAction, isPending] = useActionState(
+    createTravelRegistrationAction,
+    null,
+  );
   const [travelDate, setTravelDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [password, setPassword] = useState("");
@@ -61,6 +64,8 @@ export default function RegisterForm({ initialPackage }) {
     confirmPassword.length > 0 && password !== confirmPassword;
 
   function handleSubmit(event) {
+    if (isReviewing) return;
+
     event.preventDefault();
     if (password !== confirmPassword) {
       confirmPasswordRef.current?.setCustomValidity("Passwords do not match.");
@@ -138,7 +143,7 @@ export default function RegisterForm({ initialPackage }) {
             </p>
           </div>
 
-          <form className="form" onSubmit={handleSubmit}>
+          <form action={formAction} className="form" onSubmit={handleSubmit}>
             <div hidden={isReviewing}>
             <fieldset className="formSection">
               <legend className="formSectionTitle">Customer account details</legend>
@@ -148,6 +153,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="given-name"
                     id="register-name"
+                    maxLength={25}
                     name="firstName"
                     placeholder="Your first name"
                     required
@@ -158,6 +164,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="family-name"
                     id="register-last-name"
+                    maxLength={25}
                     name="lastName"
                     placeholder="Your last name"
                     required
@@ -168,6 +175,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="street-address"
                     id="register-address"
+                    maxLength={75}
                     name="address"
                     placeholder="Street address"
                     required
@@ -178,18 +186,20 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="address-level2"
                     id="register-city"
+                    maxLength={50}
                     name="city"
                     placeholder="City"
                     required
                   />
                 </div>
                 <div className="field">
-                  <label htmlFor="register-province">Province</label>
+                  <label htmlFor="register-province">Province abbreviation</label>
                   <input
                     autoComplete="address-level1"
                     id="register-province"
+                    maxLength={2}
                     name="province"
-                    placeholder="Province"
+                    placeholder="e.g. AB"
                     required
                   />
                 </div>
@@ -198,6 +208,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="country-name"
                     id="register-address-country"
+                    maxLength={25}
                     name="addressCountry"
                     placeholder="Country"
                     required
@@ -208,6 +219,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="postal-code"
                     id="register-postal-code"
+                    maxLength={7}
                     name="postalCode"
                     placeholder="Postal code"
                     required
@@ -218,6 +230,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="email"
                     id="register-email"
+                    maxLength={50}
                     name="email"
                     placeholder="you@example.com"
                     required
@@ -229,6 +242,7 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="tel"
                     id="register-home-phone"
+                    maxLength={20}
                     name="homePhone"
                     placeholder="Home phone number"
                     required
@@ -236,12 +250,14 @@ export default function RegisterForm({ initialPackage }) {
                   />
                 </div>
                 <div className="field">
-                  <label htmlFor="register-business-phone">Business phone (Optional)</label>
+                  <label htmlFor="register-business-phone">Business phone</label>
                   <input
                     autoComplete="work tel"
                     id="register-business-phone"
+                    maxLength={20}
                     name="businessPhone"
                     placeholder="Business phone number"
+                    required
                     type="tel"
                   />
                 </div>
@@ -250,6 +266,8 @@ export default function RegisterForm({ initialPackage }) {
                   <input
                     autoComplete="username"
                     id="register-user-id"
+                    maxLength={50}
+                    minLength={3}
                     name="userId"
                     placeholder="Choose a user ID"
                     required
@@ -261,6 +279,8 @@ export default function RegisterForm({ initialPackage }) {
                     autoComplete="new-password"
                     id="register-password"
                     name="password"
+                    maxLength={128}
+                    minLength={8}
                     onChange={(event) => {
                       const value = event.target.value;
                       setPassword(value);
@@ -284,6 +304,8 @@ export default function RegisterForm({ initialPackage }) {
                     autoComplete="new-password"
                     id="register-confirm-password"
                     name="confirmPassword"
+                    maxLength={128}
+                    minLength={8}
                     onChange={(event) => {
                       const value = event.target.value;
                       setConfirmPassword(value);
@@ -479,7 +501,7 @@ export default function RegisterForm({ initialPackage }) {
             </button>
 
             <p className="privacy">
-              Your details stay in this preview and are not sent anywhere.
+              Your details are saved securely to our travel registration database.
             </p>
             </div>
             {isReviewing && (
@@ -501,8 +523,13 @@ export default function RegisterForm({ initialPackage }) {
                   </div>
                 </dl>
                 <p className="privacy">
-                  This is a preview. Your information is not sent or saved.
+                  Your password is stored as a secure hash and is never shown.
                 </p>
+                {state?.error && (
+                  <p className="passwordMatch passwordMatch--error" role="alert">
+                    {state.error}
+                  </p>
+                )}
                 <div className="reviewActions">
                   <button
                     className="reviewBack"
@@ -511,14 +538,9 @@ export default function RegisterForm({ initialPackage }) {
                   >
                     Back to edit
                   </button>
-                  <button
-                    className="submit"
-                    onClick={() =>
-                      router.push("/plan-your-trip/register-now/confirmation")
-                    }
-                    type="button"
-                  >
-                    Confirm registration <span aria-hidden="true">→</span>
+                  <button className="submit" disabled={isPending} type="submit">
+                    {isPending ? "Saving registration..." : "Confirm registration"}
+                    <span aria-hidden="true">→</span>
                   </button>
                 </div>
               </section>

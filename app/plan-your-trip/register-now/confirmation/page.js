@@ -23,12 +23,11 @@ export default function RegistrationConfirmationPage() {
           <p className="confirmation-card__eyebrow">Your journey starts here</p>
           <h1 id="confirmation-title">Thank you for registering!</h1>
           <p className="confirmation-card__description">
-            We’re glad you’re interested in discovering China. Your travel
-            inspiration is just around the corner.
+            We’re glad you’re interested in discovering China. Your registration
+            and travel preferences have been saved.
           </p>
           <p className="confirmation-card__notice">
-            This is a preview confirmation. Your details have not been sent or
-            saved.
+            Your account password was securely hashed before it was stored.
           </p>
           <div className="confirmation-card__actions">
             <Link className="confirmation-card__primary" href="/">
