@@ -9,22 +9,22 @@ export const metadata = {
 
 const teamMembers = [
     {
-        name: "Alvin Zhao",
-        alias: "赵一帆 / Alvin",
+        name: "John Doe",
+        alias: "John",
         phone: "1-123-555-0100",
-        email: "alvin@example.com",
+        email: "johndoe@example.com",
     },
     {
-        name: "Andrew Maje",
-        alias: "Andrew / Drew",
+        name: "Jane Smith",
+        alias: "李小明 / Jane",
         phone: "1-305-216-5829",
-        email: "andrew.maje@example.com",
+        email: "jane.smith@example.com",
     },
     {
-        name: "Angie Chico",
-        alias: "Angie",
+        name: "Samer Khan",
+        alias: "Khan / Samer",
         phone: "1-972-000-1111",
-        email: "angie.chico@example.com",
+        email: "samer.khan@example.com",
     },
 ];
 

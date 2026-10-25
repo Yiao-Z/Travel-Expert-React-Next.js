@@ -14,7 +14,7 @@
   padding: clamp(40px, 7vw, 104px);
   background:
     linear-gradient(135deg, rgb(17 35 27 / 83%), rgb(17 35 27 / 35%)),
-    url("/background-china.jpg") center / cover;
+    url("/image/background-china.jpg") center / cover;
   color: #fff;
 }
 

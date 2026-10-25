@@ -237,7 +237,7 @@ a {
   padding: 80px clamp(28px, 10vw, 150px);
   background-image:
     linear-gradient(90deg, rgb(14 25 20 / 72%) 0%, rgb(14 25 20 / 40%) 52%, rgb(14 25 20 / 10%) 100%),
-    url("/background-china.jpg");
+    url("/image/background-china.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -477,6 +477,12 @@ a {
   color: rgb(255 255 255 / 88%);
   font-size: 17px;
   line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .hero-cta {

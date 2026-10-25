@@ -36,6 +36,7 @@ const navigationMenus = [
       { label: "Travel tips", href: "/plan-your-trip/travel-tips" },
       { label: "When to visit", href: "/plan-your-trip/when-to-visit" },
       { label: "Getting around", href: "/plan-your-trip/getting-around" },
+      { label: "Packages", href: "/plan-your-trip/packages" },
       { label: "Register now", href: "/plan-your-trip/register-now" },
     ],
   },

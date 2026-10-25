@@ -1,3 +1,4 @@
+/*Alvin's page */
 import Link from "next/link";
 import SiteHeader from "./apptopbar";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <SiteHeader />
 
+      {/* Home page content */}
       <main>
         <section className="hero" id="home">
           <div className="hero-content">
@@ -15,9 +17,18 @@ export default function Home() {
               From ancient wonders to vibrant cities, begin a journey unlike
               any other.
             </p>
-            <Link className="hero-cta" href="/destinations">
-              Explore China <span aria-hidden="true">→</span>
-            </Link>
+            <div className="hero-actions">
+              <Link className="hero-cta" href="/destinations">
+                Explore China <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                className="hero-cta hero-cta--secondary"
+                href="/plan-your-trip"
+                href="/register-now"
+              >
+                Register for a trip <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
           <Link className="scroll-cue" href="/destinations">
             <span aria-hidden="true">↓</span> Scroll to explore
@@ -40,7 +51,7 @@ export default function Home() {
                 className="feature-card__link"
                 href="/destinations/great-wall"
               >
-                Visit the Great Wall <span aria-hidden="true">→</span>
+                Visit the Great Wall <span aria-hidden="true"></span>
               </Link>
             </article>
             <article className="feature-card">

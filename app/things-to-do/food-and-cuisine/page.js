@@ -79,7 +79,7 @@ export default function FoodAndCuisinePage() {
             fill
             loading="eager"
             sizes="100vw"
-            src="/images/food-and-culture.png"
+            src="/image/food-and-culture.png"
             unoptimized
           />
           <div className="foodHeroOverlay" />
