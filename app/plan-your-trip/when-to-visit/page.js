@@ -1,3 +1,6 @@
+// When to visit page made by Andrew Maje
+// Ai was used in some of the code generation
+
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../apptopbar";

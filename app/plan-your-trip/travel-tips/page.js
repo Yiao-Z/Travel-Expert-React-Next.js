@@ -1,3 +1,6 @@
+// Travel tips page made by Andrew Maje
+// Ai was use in some of the code generation
+
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../apptopbar";
@@ -54,7 +57,7 @@ const travelTips = [
   },
   {
     number: "08 / WHEN TO VISIT",
-    title: "Choose your dates with care",
+    title: "Think before you book",
     description:
       "See seasonal guidance and learn why many travelers avoid China’s busy National Day Golden Week.",
   }

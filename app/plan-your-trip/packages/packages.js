@@ -32,7 +32,7 @@ export const travelPackages = [
     category: "Food & local life",
     description:
       "Explore regional food traditions, lively neighborhoods, and local favorites.",
-    image: "/images/food-and-culture.png",
+    image: "/image/food-and-culture.png",
     imageAlt: "Chinese food and culture",
   },
 ];

@@ -1,25 +1,39 @@
+// Made by Andrew Maje and Alvin Zhao
+// Ai was used in some of the code generation
+
 "use client";
 
 import Link from "next/link";
 import { useActionState, useRef, useState } from "react";
 import SiteHeader from "../../apptopbar";
 import { createTravelRegistrationAction } from "../../../lib/actions";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { travelPackages } from "../packages/packages";
 import "./register-now.css";
 
-function formatDateInput(value) {
-  const digits = value.replace(/\D/g, "").slice(0, 8);
 
-  if (digits.length >= 5) {
-    return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+function parseDateInput(value) {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+  if (!match) return null;
+
+  const [, month, day, year] = match.map(Number);
+  const date = new Date(0);
+  date.setHours(12, 0, 0, 0);
+  date.setFullYear(year, month - 1, day);
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
   }
-  if (digits.length >= 3) {
-    return `${digits.slice(0, 2)}/${digits.slice(2)}`;
-  }
-  if (digits.length === 2) {
-    return `${digits}/`;
-  }
-  return digits;
+  return date;
+}
+
+function formatDateValue(date) {
+  if (!date) return "";
+  return `${String(date.getMonth() + 1).padStart(2, "0")}/${String(date.getDate()).padStart(2, "0")}/${date.getFullYear()}`;
 }
 
 function calculateReturnDate(startDate, durationDays) {
@@ -57,6 +71,7 @@ export default function RegisterForm({ initialPackage }) {
   const [isReviewing, setIsReviewing] = useState(false);
   const [reviewDetails, setReviewDetails] = useState([]);
   const confirmPasswordRef = useRef(null);
+  const formRef = useRef(null);
 
   const passwordsMatch =
     confirmPassword.length > 0 && password === confirmPassword;
@@ -102,6 +117,18 @@ export default function RegisterForm({ initialPackage }) {
     setIsReviewing(true);
   }
 
+  function handleBackToEdit() {
+    formRef.current?.reset();
+    setPassword("");
+    setConfirmPassword("");
+    setTravelDate("");
+    setReturnDate("");
+    setSelectedPackage(initialPackage);
+    setReviewDetails([]);
+    confirmPasswordRef.current?.setCustomValidity("");
+    setIsReviewing(false);
+  }
+
   return (
     <>
       <SiteHeader />
@@ -143,7 +170,12 @@ export default function RegisterForm({ initialPackage }) {
             </p>
           </div>
 
-          <form action={formAction} className="form" onSubmit={handleSubmit}>
+          <form
+            action={formAction}
+            className="form"
+            onSubmit={handleSubmit}
+            ref={formRef}
+          >
             <div hidden={isReviewing}>
             <fieldset className="formSection">
               <legend className="formSectionTitle">Customer account details</legend>
@@ -250,14 +282,13 @@ export default function RegisterForm({ initialPackage }) {
                   />
                 </div>
                 <div className="field">
-                  <label htmlFor="register-business-phone">Business phone</label>
+                  <label htmlFor="register-business-phone">Business phone (optional)</label>
                   <input
                     autoComplete="work tel"
                     id="register-business-phone"
                     maxLength={20}
                     name="businessPhone"
                     placeholder="Business phone number"
-                    required
                     type="tel"
                   />
                 </div>
@@ -374,13 +405,21 @@ export default function RegisterForm({ initialPackage }) {
                 </div>
                 <div className="field">
                   <label htmlFor="register-dates">When are you planning to travel?</label>
-                  <input
+                  <DatePicker
                     autoComplete="off"
+                    dateFormat="MM/dd/yyyy"
                     id="register-dates"
                     name="dates"
-                    onChange={(event) => {
-                      const startDate = formatDateInput(event.target.value);
+                    onChange={(date) => {
+                      const startDate = date
+                        ? `${String(date.getMonth() + 1).padStart(2, "0")}/${String(date.getDate()).padStart(2, "0")}/${date.getFullYear()}`
+                        : "";
                       setTravelDate(startDate);
+                      if (!date) {
+                        setReturnDate("");
+                        return;
+                      }
+
                       const chosenPackage = travelPackages.find(
                         (travelPackage) => travelPackage.id === selectedPackage,
                       );
@@ -393,30 +432,23 @@ export default function RegisterForm({ initialPackage }) {
                         );
                       }
                     }}
-                    placeholder="MM/DD/YYYY"
+                    placeholderText="MM/DD/YYYY"
                     required
-                    value={travelDate}
+                    selected={parseDateInput(travelDate)}
                   />
                 </div>
                 <div className="field">
                   <label htmlFor="register-dates-end">When will you return?</label>
-                  <input
+                  <DatePicker
                     autoComplete="off"
+                    dateFormat="MM/dd/yyyy"
                     id="register-dates-end"
                     name="dates-end"
-                    onChange={(event) =>
-                      setReturnDate(formatDateInput(event.target.value))
-                    }
-                    placeholder="MM/DD/YYYY"
+                    onChange={(date) => setReturnDate(formatDateValue(date))}
+                    placeholderText="MM/DD/YYYY"
                     required
-                    value={returnDate}
+                    selected={parseDateInput(returnDate)}
                   />
-                  {selectedPackage && (
-                    <p className="privacy">
-                      Calculated from your start date and the selected package
-                      duration.
-                    </p>
-                  )}
                 </div>
                 <div className="field">
                   <label htmlFor="register-country">
@@ -533,7 +565,7 @@ export default function RegisterForm({ initialPackage }) {
                 <div className="reviewActions">
                   <button
                     className="reviewBack"
-                    onClick={() => setIsReviewing(false)}
+                    onClick={handleBackToEdit}
                     type="button"
                   >
                     Back to edit
