@@ -7,10 +7,6 @@ const navigationMenus = [
     links: [
       { label: "Cities & regions", href: "/destinations" },
       { label: "The Great Wall", href: "/destinations/great-wall" },
-      {
-        label: "Travel essentials",
-        href: "/destinations/travel-essentials",
-      },
     ],
   },
   {
