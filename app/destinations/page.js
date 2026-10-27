@@ -1,3 +1,4 @@
+/* Alvin made this file */
 import ChinaMap from "../ChinaMap";
 import SiteHeader from "../apptopbar";
 

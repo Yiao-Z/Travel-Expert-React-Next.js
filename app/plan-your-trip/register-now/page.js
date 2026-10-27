@@ -10,7 +10,7 @@ async function RegisterPageContent({ searchParams }) {
     ? packageId
     : "";
 
-  return <RegisterForm initialPackage={initialPackage} />;
+  return <RegisterForm initialPackage={initialPackage} key={initialPackage} />;
 }
 
 export default function RegisterPage({ searchParams }) {
